@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+  </head>
+
+  <body>
+      <div class="card float-left bg-danger text-white p-2 mb-2" style="width: 24rem; height: 24rem; margin-right: 1rem;">
+        <div class="card-header">
+          <h1 class="card-title">Total cases</h1>
+        </div>
+        <div class="card-body text-light">
+          <h1 class="display-2" th:text="${totalReportedCases}"></h1>
+          <p class="card-text">All the cases reported across the world since the start of pandemic.</p>
+        </div>    
+      </div>
+    
+      <div class="card float-left bg-warning text-dark p-2 mb-2" style="width: 24rem; height: 24rem; margin-right: 1rem;">
+        <div class="card-header">
+          <h1 class="card-title" text-dark>New cases</h1>
+        </div>
+        <div class="card-body text-dark">
+          <h1 class="display-2" th:text="${totalNewCases}"></h1>
+          <p class="card-text">Cases reported since yesterday.</p>
+        </div>
+      </div>  
+      <div class="table">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+              <th scope="col">State</th>
+              <th scope="col">Country</th>
+              <th scope="col">Total cases reported</th>   
+              <th scope="col">Changes since last day</th>   
+            </tr>
+          </thead>
+          <tbody>
+            <tr scope="row" th:each="locationStat : ${locationStats}">
+              <td th:text="${locationStat.state}"></td>
+              <td th:text="${locationStat.country}"></td>
+              <td th:text="${locationStat.latestTotalCases}">0</td>
+              <td th:text="${locationStat.diffFromPrevDay}">0</td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+  </body>
+</html>
