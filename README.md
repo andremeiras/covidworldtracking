@@ -12,3 +12,7 @@ This is an application that was make using the real data from Jhons Hopkings Uni
 - Spring Boot Framework (Web and DevTools)
 - Thymeleaf library (to encode HTML file)
 - Bootstrap
+
+# Online application (Heroku)
+
+You can access the application at this link: [https://covidworldtrack.herokuapp.com/](https://covidworldtrack.herokuapp.com/).
